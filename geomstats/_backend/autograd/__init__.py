@@ -220,6 +220,22 @@ def transpose(x):
 
 
 def where(condition, x=None, y=None):
+    """Return elements chosen from x or y depending on condition.
+
+    Parameters
+    ----------
+    condition : array-like
+        Boolean condition.
+    x : array-like, optional
+        Values selected where condition is true.
+    y : array-like, optional
+        Values selected where condition is false.
+
+    Returns
+    -------
+    out : array-like or tuple of arrays
+        Selected values if x and y are provided, otherwise matching indices.
+    """
     if x is None and y is None:
         return _np.where(condition)
 
