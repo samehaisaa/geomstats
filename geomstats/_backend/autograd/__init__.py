@@ -97,7 +97,6 @@ from autograd.numpy import (
     uint8,
     unique,
     vstack,
-    where,
     zeros_like,
 )
 
@@ -218,6 +217,13 @@ def transpose(x):
         Transposed matrix.
     """
     return _np.swapaxes(x, -1, -2)
+
+
+def where(condition, x=None, y=None):
+    if x is None and y is None:
+        return _np.where(condition)
+
+    return _np.where(array(condition), x, y)
 
 
 def vectorize(x, pyfunc, multiple_args=False, signature=None, **kwargs):
